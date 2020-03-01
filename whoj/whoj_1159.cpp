@@ -12,15 +12,15 @@ struct Conflict {
 
 int main() {
     vector<Conflict> conf;
-    vector<list<int>> connection;
+    vector<list<char>> connection;
     vector<int> one_conn_num;
     int n, m;
     cin >> n >> m;
     one_conn_num.push_back(0);
-    connection.push_back(list<int>());
+    connection.push_back(list<char>());
     for (int i = 0; i != n; ++i) {
         one_conn_num.push_back(0);
-        connection.push_back(list<int>());
+        connection.push_back(list<char>());
         for (int j = 0; j != n; ++j) {
             if (j != i) connection.back().push_back(j + 1);
         }
@@ -42,8 +42,8 @@ int main() {
     int i = 0;
     for ( ; i != conf.size(); ++i) {
         auto item = conf[i];
-        list<int> &conn1 = connection[item.rune1];
-        list<int> &conn2 = connection[item.rune2];
+        list<char> &conn1 = connection[item.rune1];
+        list<char> &conn2 = connection[item.rune2];
 
         conn1.remove(item.rune2);
         conn2.remove(item.rune1);
